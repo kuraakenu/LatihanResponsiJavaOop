@@ -103,16 +103,8 @@ public class DAOKandidat implements InterfaceDAOKandidat{
                 kandidat.setInterview(resultSet.getInt("interview"));
                 kandidat.setScore(resultSet.getFloat("score"));
                 kandidat.setStatus(resultSet.getString("status"));
-                
-                /* 
-                  Menambahkan mahasiswa ke dalam daftar mahasiswa.
-                  Daftar mahasiswa disimpan ke dalam variabel "listMahasiswa"
-                  yang memiliki tipe data List.
-                */
                 listKandidat.add(kandidat);
             }
-            
-            // Menutup koneksi untuk menghemat penggunaan memory.
             statement.close();
             
         }catch(SQLException e){

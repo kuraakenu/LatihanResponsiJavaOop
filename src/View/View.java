@@ -11,11 +11,11 @@ import Controller.ControllerKandidat;
  * @author mzida
  */
 public class View extends javax.swing.JFrame {
-
+    
     private ControllerKandidat controller;
     private int selectedId = -1;
     Integer baris;
-
+    
     /**
      * Creates new form View
      */
@@ -36,23 +36,22 @@ public class View extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabelName = new javax.swing.JLabel();
-        textFieldName = new java.awt.TextField();
-        jComboBoxPath = new javax.swing.JComboBox<>();
-        jLabelWriting = new javax.swing.JLabel();
-        textFieldWriting = new java.awt.TextField();
+        jTextFieldNama = new javax.swing.JTextField();
+        jLabelNama = new javax.swing.JLabel();
         jLabelCoding = new javax.swing.JLabel();
-        textFieldCoding = new java.awt.TextField();
+        jTextFieldCoding = new javax.swing.JTextField();
+        jLabelWriting = new javax.swing.JLabel();
+        jTextFieldWriting = new javax.swing.JTextField();
         jLabelPath = new javax.swing.JLabel();
-        textFieldInterview = new java.awt.TextField();
+        jComboBoxPath = new javax.swing.JComboBox<>();
+        jTextFieldInterview = new javax.swing.JTextField();
         jLabelInterview = new javax.swing.JLabel();
-        jButtonAdd = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
         jButtonClear = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 500));
 
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -61,29 +60,30 @@ public class View extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jLabelName.setText("Name");
-
-        jComboBoxPath.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Android Dev", "Web Dev" }));
-
-        jLabelWriting.setText("Writing");
+        jLabelNama.setText("Nama");
 
         jLabelCoding.setText("Coding");
 
+        jLabelWriting.setText("Writing");
+
         jLabelPath.setText("Path");
 
+        jComboBoxPath.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Android Dev", "Web Dev" }));
+
         jLabelInterview.setText("Interview");
+
+        jButtonUpdate.setText("Update");
+        jButtonUpdate.setToolTipText("");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
 
         jButtonAdd.setText("Add");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddActionPerformed(evt);
-            }
-        });
-
-        jButtonUpdate.setText("Update");
-        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUpdateActionPerformed(evt);
             }
         });
 
@@ -106,48 +106,48 @@ public class View extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonClear)
-                    .addComponent(jButtonDelete)
-                    .addComponent(jButtonUpdate)
-                    .addComponent(jButtonAdd)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelPath)
-                        .addComponent(jLabelInterview)
-                        .addComponent(jLabelCoding)
-                        .addComponent(jLabelWriting)
-                        .addComponent(jLabelName)
-                        .addComponent(textFieldWriting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldCoding, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldInterview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBoxPath, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelWriting)
+                    .addComponent(jLabelInterview)
+                    .addComponent(jLabelNama)
+                    .addComponent(jLabelPath)
+                    .addComponent(jLabelCoding)
+                    .addComponent(jTextFieldWriting)
+                    .addComponent(jTextFieldCoding)
+                    .addComponent(jTextFieldInterview)
+                    .addComponent(jComboBoxPath, 0, 171, Short.MAX_VALUE)
+                    .addComponent(jTextFieldNama)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabelName)
-                .addGap(2, 2, 2)
-                .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabelNama, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelPath)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelWriting)
-                .addGap(2, 2, 2)
-                .addComponent(textFieldWriting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldWriting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelCoding)
-                .addGap(2, 2, 2)
-                .addComponent(textFieldCoding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldCoding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelInterview)
-                .addGap(1, 1, 1)
-                .addComponent(textFieldInterview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldInterview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jButtonAdd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonUpdate)
@@ -155,7 +155,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jButtonDelete)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonClear)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,17 +163,14 @@ public class View extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -187,13 +184,19 @@ public class View extends javax.swing.JFrame {
         controller.editKandidat();
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
-    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonClearActionPerformed
-
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         controller.deleteKandidat(baris);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
+
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
+        jTextFieldNama.setText("");
+        jTextFieldWriting.setText("");
+        jTextFieldCoding.setText("");
+        jTextFieldInterview.setText("");
+        jComboBoxPath.setSelectedIndex(0); 
+        selectedId = -1; 
+        baris = null;    
+    }//GEN-LAST:event_jButtonClearActionPerformed
 
     private void tableClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClicked
         baris = jTable1.getSelectedRow();
@@ -202,7 +205,7 @@ public class View extends javax.swing.JFrame {
             jTable1.getValueAt(baris, 0).toString()
         );
 
-        textFieldName.setText(
+        jTextFieldNama.setText(
             jTable1.getValueAt(baris, 1).toString()
         );
 
@@ -210,28 +213,28 @@ public class View extends javax.swing.JFrame {
             jTable1.getValueAt(baris, 2).toString()
         );
 
-        textFieldWriting.setText(
+        jTextFieldWriting.setText(
             jTable1.getValueAt(baris, 3).toString()
         );
 
-        textFieldCoding.setText(
+        jTextFieldCoding.setText(
             jTable1.getValueAt(baris, 4).toString()
         );
 
-        textFieldInterview.setText(
+        jTextFieldInterview.setText(
             jTable1.getValueAt(baris, 5).toString()
         );
     }//GEN-LAST:event_tableClicked
 
     /**
-     * @return 
+     * @param args the command line arguments
      */
     public int getSelectedId(){
         return selectedId;
     }
     
     public String getInputNama(){
-        return textFieldName.getText();
+        return jTextFieldNama.getText();
     }
     
     public String getInputPath(){
@@ -239,15 +242,15 @@ public class View extends javax.swing.JFrame {
     }
     
     public String getInputWritingScore(){
-        return textFieldWriting.getText();
+        return jTextFieldWriting.getText();
     }
     
     public String getInputCodingScore(){
-        return textFieldCoding.getText();
+        return jTextFieldCoding.getText();
     }
     
     public String getInputInterviewScore(){
-        return textFieldInterview.getText();
+        return jTextFieldInterview.getText();
     }
     
     public javax.swing.JTable getTableKandidat(){
@@ -262,15 +265,15 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxPath;
     private javax.swing.JLabel jLabelCoding;
     private javax.swing.JLabel jLabelInterview;
-    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelNama;
     private javax.swing.JLabel jLabelPath;
     private javax.swing.JLabel jLabelWriting;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.awt.TextField textFieldCoding;
-    private java.awt.TextField textFieldInterview;
-    private java.awt.TextField textFieldName;
-    private java.awt.TextField textFieldWriting;
+    private javax.swing.JTextField jTextFieldCoding;
+    private javax.swing.JTextField jTextFieldInterview;
+    private javax.swing.JTextField jTextFieldNama;
+    private javax.swing.JTextField jTextFieldWriting;
     // End of variables declaration//GEN-END:variables
 }

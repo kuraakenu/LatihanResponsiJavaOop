@@ -67,11 +67,7 @@ public class ControllerKandidat {
             
             totalScore = (writingScore + codingScore + interviewScore)/3f;
             
-            if(totalScore < 85){
-                status = "Tidak Diterima";
-            }else{
-                status = "Diterima";
-            }
+            status = (totalScore < 85) ? "Tidak Diterima" : "Diterima";
             
             kandidatBaru.setNama(nama);
             kandidatBaru.setPath(path);
