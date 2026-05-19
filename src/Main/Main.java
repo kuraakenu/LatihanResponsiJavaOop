@@ -18,5 +18,10 @@ public class Main {
     public static void main(String[] args) {
         new View().setVisible(true);
     }
-    
+    /**
+     * 
+     * IF-F_123240082 _Muhammad Zidane Zulfikar
+     * 
+     * 
+     */
 }
