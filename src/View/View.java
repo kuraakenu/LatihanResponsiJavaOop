@@ -13,7 +13,7 @@ import Controller.ControllerKandidat;
 public class View extends javax.swing.JFrame {
 
     private ControllerKandidat controller;
-    private int selectedId;
+    private int selectedId = -1;
     Integer baris;
 
     /**
@@ -54,17 +54,6 @@ public class View extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 500));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Name", "Path", "Writing", "Coding", "Interview", "Score", "Status"
-            }
-        ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableClicked(evt);
@@ -207,7 +196,7 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     private void tableClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClicked
-        int baris = jTable1.getSelectedRow();
+        baris = jTable1.getSelectedRow();
 
         selectedId = Integer.parseInt(
             jTable1.getValueAt(baris, 0).toString()

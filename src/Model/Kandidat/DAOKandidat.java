@@ -96,7 +96,7 @@ public class DAOKandidat implements InterfaceDAOKandidat{
                 ModelKandidat kandidat = new ModelKandidat();
                 
                 kandidat.setId(resultSet.getInt("id"));
-                kandidat.setNama(resultSet.getString("name"));
+                kandidat.setNama(resultSet.getString("nama"));
                 kandidat.setPath(resultSet.getString("path"));
                 kandidat.setWriting(resultSet.getInt("writing"));
                 kandidat.setCoding(resultSet.getInt("coding"));

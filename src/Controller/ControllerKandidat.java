@@ -25,7 +25,7 @@ public class ControllerKandidat {
         this.halamanUtama = halamanUtama;
         this.daoKandidat = new DAOKandidat();
         
-//        showAllKandidat();
+        showAllKandidat();
     }
     
     public void showAllKandidat(){
@@ -83,6 +83,7 @@ public class ControllerKandidat {
             
             daoKandidat.insert(kandidatBaru);
             JOptionPane.showMessageDialog(null, "Kandidat baru berhasil ditambahkan.");
+            showAllKandidat();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
@@ -91,6 +92,11 @@ public class ControllerKandidat {
     
     public void editKandidat(){
         try{
+            
+            if(halamanUtama.getSelectedId() == -1){
+                throw new Exception("Pilih baris yang ingin diedit terlebih dahulu!");
+            }
+            
             ModelKandidat kandidatEdit = new ModelKandidat();
             
             float totalScore;
@@ -110,15 +116,29 @@ public class ControllerKandidat {
             int codingScore = Integer.parseInt(codingText);
             int interviewScore = Integer.parseInt(interviewText);
             
+            if(writingScore > 100 || codingScore > 100 || interviewScore > 100){
+                throw new Exception("Score tidak boleh melebihi 100!");
+            }
+            if(writingScore < 0 || codingScore < 0 || interviewScore < 0){
+                throw new Exception("Score tidak boleh negatif!");
+            }
+            
+            kandidatEdit.setId(halamanUtama.getSelectedId());
             kandidatEdit.setNama(nama);
             kandidatEdit.setPath(path);
             kandidatEdit.setWriting(writingScore);
             kandidatEdit.setCoding(codingScore);
             kandidatEdit.setInterview(interviewScore);
             
+            totalScore = (writingScore + codingScore + interviewScore) / 3f;
+            status = (totalScore < 85) ? "Tidak Diterima" : "Diterima";
+            kandidatEdit.setScore(totalScore);
+            kandidatEdit.setStatus(status);
+            
             daoKandidat.update(kandidatEdit);
             
             JOptionPane.showMessageDialog(null, "Data kandidat berhasil diubah.");
+            showAllKandidat();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
@@ -126,6 +146,12 @@ public class ControllerKandidat {
     }
     
     public void deleteKandidat(Integer baris){
+        
+        if(baris == null){
+            JOptionPane.showMessageDialog(null, "Pilih baris yang ingin dihapus terlebih dahulu!");
+            return;
+        }
+
         Integer id = (int) halamanUtama.getTableKandidat().getValueAt(baris, 0);
         String nama = halamanUtama.getTableKandidat().getValueAt(baris, 1).toString();
         
